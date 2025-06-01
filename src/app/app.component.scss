@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 80% !important;
+}
+::ng-deep .p-toast.p-component {
+    width: 20rem !important;
+}
+}
