@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
+:root {
+    --background-button-ivailed: #b0b0b0;
+    --background-button-valid: #007ad9;
+}
+
+p-inputGroup {
+    margin-bottom: 1rem;
+}
+
+body {
+    background-image: url(assets/BG.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
