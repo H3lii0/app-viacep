@@ -14,6 +14,7 @@ import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ToastModule,
     RippleModule,
     ButtonModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    InputSwitchModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -45,12 +47,31 @@ export class AppComponent {
   estado: string = '';
   ibge: string = '';
   loading: boolean = false; 
-
+  changeTheme: boolean = false;
+  
   constructor(
     private http: HttpClient,
     private viacepApiService: ViacepApiService,
     private messageService: MessageService
   ) {}
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      const switchContainer = document.querySelector('.themed-switch .p-inputswitch');
+      if (switchContainer) {
+        const sunIcon = document.createElement('i');
+        sunIcon.className = 'pi pi-sun switch-icon-left';
+        
+        const moonIcon = document.createElement('i');
+        moonIcon.className = 'pi pi-moon switch-icon-right';
+        
+        switchContainer.appendChild(sunIcon);
+        switchContainer.appendChild(moonIcon);
+      
+        this.updateIconVisibility();
+      }
+    }, 100);
+  } 
 
   cepConsult(cep: string) {
     this.loading = true;
@@ -101,6 +122,29 @@ export class AppComponent {
 
   buttonIconchange(): string {
     return this.isCepProvided() ? 'pi pi-search' : 'pi pi-ban';
+  }
+
+  toggleTheme() {
+    this.changeTheme = !this.changeTheme;
+    this.updateIconVisibility();
+    document.body.classList.toggle('dark-theme', this.changeTheme);
+  }
+
+  private updateIconVisibility() {
+    setTimeout(() => {
+      const sunIcon = document.querySelector('.switch-icon-left');
+      const moonIcon = document.querySelector('.switch-icon-right');
+      
+      if (sunIcon && moonIcon) {
+        if (this.changeTheme) {
+          (sunIcon as HTMLElement).style.opacity = '0.3';
+          (moonIcon as HTMLElement).style.opacity = '1';
+        } else {
+          (sunIcon as HTMLElement).style.opacity = '1';
+          (moonIcon as HTMLElement).style.opacity = '0.3';
+        }
+      }
+    }, 50);
   }
 
 }

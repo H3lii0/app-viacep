@@ -1,26 +1,28 @@
-<h1 [style]="{ 'text-align': 'center', 'margin-top': '20px', 'color': 'antiquewhite' }">Consulta de CEP</h1>
+<div class="header__container">
+    <h1>Consulta de CEP</h1>
+</div>
 <p-toast></p-toast>
 <div [style]="{ 'display': 'flex', 'justify-content': 'center', 'align-items': 'center' }">
-  <div class="container" [style]="{ 'margin-top': '100px', 'justify-content': 'center', 'flex-wrap': 'wrap', 'width': '20%' }">
+  <div class="container" [style]="{ 'margin-top': '80px', 'justify-content': 'center', 'flex-wrap': 'wrap', 'width': '20%' }">
+    <div style="padding-left: -12px; padding-bottom: 8px;">
+      <p-inputSwitch class="themed-switch" (onChange)="toggleTheme()"></p-inputSwitch>
+    </div>
     <p-inputGroup>
       <p-inputGroupAddon>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth-icon lucide-earth"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"/><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"/><circle cx="12" cy="12" r="10"/></svg>
       </p-inputGroupAddon>
-      <p-floatLabel [style]="{ 'width': '100%' }">
-        <input 
-          pInputText 
-          type="text" 
-          placeholder="Digite o CEP" 
-          [(ngModel)]="cep" 
-          maxlength="8" 
-          pattern="\d*"  
-          inputmode="numeric" 
-          (keydown)="onCepInput($event)" 
-          [class.ng-invalid]="!cep"
-          [class.ng-dirty]="!cep"
-        />
-        <label for="cep">Cep</label>
-      </p-floatLabel>
+      <input 
+        pInputText 
+        type="text" 
+        placeholder="Digite o CEP" 
+        [(ngModel)]="cep" 
+        name="cep"
+        maxlength="8" 
+        pattern="\d*"  
+        inputmode="numeric" 
+        (keydown)="onCepInput($event)" 
+        (keydown.enter)="cepConsult(cep)"
+      />
     </p-inputGroup>
     <p-inputGroup>
       <p-inputGroupAddon>

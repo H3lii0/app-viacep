@@ -1,8 +1,32 @@
-@media only screen and (max-width: 600px) {
-  .container {
-    width: 80% !important;
+.header__container {
+    width: 100%;
 }
-::ng-deep .p-toast.p-component {
-    width: 20rem !important;
+
+::ng-deep .switch-icon-left,
+::ng-deep .switch-icon-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  transition: opacity 0.3s ease;
+  z-index: 5;
 }
+
+::ng-deep .switch-icon-left {
+  left: 10px;
+  color: #000000;
+}
+
+::ng-deep .switch-icon-right {
+  right: 8px;
+  color: #000000;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 80% !important;
+    }
+    ::ng-deep .p-toast.p-component {
+        width: 20rem !important;
+    }
 }
