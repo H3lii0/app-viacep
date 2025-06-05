@@ -25,8 +25,12 @@
 @media (max-width: 600px) {
     .container {
         width: 80% !important;
+        margin-top: 14% !important;
     }
     ::ng-deep .p-toast.p-component {
         width: 20rem !important;
+    }
+    ::ng-deep .p-dialog.p-component {
+      transform: scale(0.75) !important;
     }
 }
