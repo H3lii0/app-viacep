@@ -22,15 +22,11 @@ L.Marker.prototype.options.icon = iconDefault;
   templateUrl: './leaflet-map.component.html',
   styleUrl: './leaflet-map.component.scss'
 })
-export class LeafletMapComponent implements OnInit {
+export class LeafletMapComponent {
   @Input() latitude: string = '';
   @Input() longitude: string = '';
   @Input() logadouro: string = '';
   map: L.Map | undefined;
-  
-  ngOnInit() {
-    
-  }
 
   initMap() {
     if (this.map) {
