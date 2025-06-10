@@ -2,13 +2,13 @@
     <h1>Consulta de CEP</h1>
 </div>
 <p-toast></p-toast>
-<div [style]="{ 'display': 'flex', 'justify-content': 'center', 'align-items': 'center' }">
-  <div class="container" [style]="{ 'margin-top': '80px', 'justify-content': 'center', 'flex-wrap': 'wrap', 'width': '20%' }">
-    <div class="container__map" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="container">
+  <div class="container__cep-form">
+    <div class="container__map">
       <div>
         <p-inputSwitch class="themed-switch" (onChange)="toggleTheme()"></p-inputSwitch>
       </div>
-      <div *ngIf="consultCepSucess" style="padding-bottom: 12px;">
+      <div *ngIf="consultCepSucess" class="container__map-item">
         <p-button icon="pi pi-map-marker" [rounded]="true" (click)="showMap()"></p-button>
         <p-dialog header="Mapa de localização" [modal]="true" [(visible)]="visible" [style]="{ width: '28rem' }" (onShow)="mapComp.initMap()">
           <app-leaflet-map #mapComp [latitude]="latitude" [longitude]="logitude" [logadouro]="logradouro"></app-leaflet-map>
@@ -64,7 +64,7 @@
       </p-inputGroupAddon>
       <input pInputText type="text" placeholder="Código IBGE" [(ngModel)]="ibge" disabled>
     </p-inputGroup>
-    <div [style]="{ 'width': '100%', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center' }">
+    <div class="container__button-item">
       <p-progressSpinner 
         *ngIf="loading"
         [style]="{ 'width': '40px', 'height': '40px' }" 
@@ -78,7 +78,6 @@
         [label]="'Consultar'" 
         [icon]="buttonIconchange()" 
         (click)="cepConsult(cep)" 
-        class="search-button"
         [style]="{
           'background-color': buttonDisabled(), 
           'border-color': buttonDisabled() 
