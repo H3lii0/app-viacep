@@ -1,27 +1,46 @@
-# AppViacep
+# Zip code search
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+ZIP code search system with geolocation display on the map.
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ZIP code search system with geolocation display on the map, based on the address obtained through the search via the entered ZIP code.
 
-## Code scaffolding
+## Technologies used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- Leaflite
+- Nominatim Open-source geocoding
+- PrimeNG
+  
+## Installation
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js 18+
+- Angular CLI 17.3.8
+- PrimeNG 17.18.15
+- Leaflite 1.9.4
 
-## Running unit tests
+## Step by step
+  1. Clone the repository to your local machine:
+      ```sh
+        https://github.com/H3lii0/zipcode-search.git
+      ```
+  2. Install dependences:
+      ```sh
+        npm install
+      ```     
+  3. Run the application using NG SERVE:
+     ```sh
+       ng serve
+     ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Running end-to-end tests
+- ZIP code lookup
+- Geolocation map display according to address
+- Change page theme
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
